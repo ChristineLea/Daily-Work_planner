@@ -52,7 +52,7 @@ $(document).ready(function () {
 			.text(JSON.parse(localStorage.getItem("four")));
 	} else {
 		$hour5
-			.childrren()
+			.children()
 			.eq(1)
 			.text(JSON.parse(localStorage.getItem("five")));
 	}
