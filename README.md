@@ -24,6 +24,7 @@ N/A
 ---
 
 ## Usage
+The deployed application is available at [Application link](https://christinelea.github.io/Daily-Work_planner/)
 To view local storage in the browser, right-click and select **Inspect**. This will open the Developer Tools. Select the >> icon, then select **Application**. This will display local storage. This can be seen in the below image.
 ![Where to find local storage in the browser](./assets/images/dev-tool-one.png)
 
