@@ -13,7 +13,6 @@ let $hour4 = $("#hour-4");
 let $hour5 = $("#hour-5");
 let $saveBtnEl = $(".saveBtn");
 
-
 let $text9 = $hour9.children().eq(1).text();
 let $text10 = $hour10.children().eq(1).text();
 let $text11 = $hour11.children().eq(1).text();
@@ -25,20 +24,11 @@ let $text4 = $hour4.children().eq(1).text();
 let $text5 = $hour5.children().eq(1).text();
 
 $(function () {
-	// TODO: Add a listener for click events on the save button. This code should
-	// use the id in the containing time-block as a key to save the user input in
-	// local storage. HINT: What does `this` reference in the click listener
-	// function? How can DOM traversal be used to get the "hour-x" id of the
-	// time-block containing the button that was clicked? How might the id be
-	// useful when saving the description in local storage?
-
-	
-
 	$saveBtnEl.on("click", function (event) {
 		let $btn = $(event.currentTarget).parent();
 		// let $descr = $(event.currentTarget).parent().children("textarea").text();
 		let $id = $btn.attr("id");
-		let $descr = $btn.children("textarea").text();
+		let $descr = $btn.children("textarea").val();
 		console.log($descr);
 		console.log($id);
 
@@ -63,44 +53,70 @@ $(function () {
 		}
 	});
 
-	// function linkTime(hour) {
-	// 	$timeBlock = $("body").children().eq(1).children(1).eq(i).attr("id");
-	// 	let timeBlockId = hour.attr("id");
-	// 	let timeBlockText = hour.children().eq(1).text();
-	// 	let timeBlockBtn = hour.children().eq(2);
-	// }
-	// let $timeBlock = $("body").children().eq(1).children(1).eq();
-
-	// ("body").children().eq(1).children(1).eq(x).attr("id") // will return the value of id
-
-	// $("textarea").eq(x).text("by"); // add text - to get text .val()
-
-	// 	let $domTrav = $("body").children().eq(1).children(1);
-	// 	let $timeBlockInput = $("textarea").text();
-	// 	$timeBlockInput;
-	// let timeBlockEl = $("time-block");
-	// 	$.each($domTrav, function (i, val) {
-
-	// 			val = $domTrav.eq(i).attr("id");
-	// 		if (val === $btnClicked) {
-
-	// 			}
-	// 			// if ($timeBlockBtn === val) {
-	// 			// 	val = "#" + val;
-	// 			// 	console.log(val);
-	// 			// 	let $hourEl = $(val);
-	// 			// 	console.log($hourEl);
-	// 			// } else {
-	// 			// 	console.log("no match");
-	// 			// }
-	// 	});
-
-	// 	});
 	// TODO: Add code to apply the past, present, or future class to each time
 	// block by comparing the id to the current hour. HINTS: How can the id
 	// attribute of each time-block be used to conditionally add or remove the
 	// past, present, and future classes? How can Day.js be used to get the
 	// current hour in 24-hour time?
+
+	let currentHour = dayjs().format("h");
+	let compareHour;
+	console.log(compareHour);
+	if (currentHour > 9 && currentHour < 6) {
+		compareHour = "hour-" + currentHour;
+	} 
+	if (currentHour === 9) {
+		// toggleClass(name, false = remove, true = add)
+		// all start on future
+		$hour9
+			.toggleClass("present", true)
+			.toggleClass("past", "future", false);
+	} else if (currentHour === 10) {
+		$hour9.toggleClass("past", true).toggleClass("present", false);
+		$hour10
+			.toggleClass("present", true)
+			.toggleClass("past", "future", false);
+	} else if (currentHour === 11) {
+		$hour10.toggleClass("past", true).toggleClass("present", false);
+		$hour11
+			.toggleClass("present", true)
+			.toggleClass("past", "future", false);
+	} else if (currentHour === 12) {
+		$hour11.toggleClass("past", true).toggleClass("present", false);
+		$hour12
+			.toggleClass("present", true)
+			.toggleClass("past", "future", false);
+	} else if (currentHour === 1) {
+		$hour12.toggleClass("past", true).toggleClass("present", false);
+		$hour1
+			.toggleClass("present", true)
+			.toggleClass("past", "future", false);
+	} else if (currentHour === 2) {
+		$hour1.toggleClass("past", true).toggleClass("present", false);
+		$hour2
+			.toggleClass("present", true)
+			.toggleClass("past", "future", false);
+	} else if (currentHour === 3) {
+		$hour2.toggleClass("past", true).toggleClass("present", false);
+		$hour3
+			.toggleClass("present", true)
+			.toggleClass("past", "future", false);
+	} else if (currentHour === 4) {
+		$hour3.toggleClass("past", true).toggleClass("present", false);
+		$hour4
+			.toggleClass("present", true)
+			.toggleClass("past", "future", false);
+	} else if (currentHour === 5) {
+		$hour4.toggleClass("past", true).toggleClass("present", false);
+		$hour5
+			.toggleClass("present", true)
+			.toggleClass("past", "future", false);
+	} else {
+		$hour4.toggleClass("present", true).toggleClass("past", false);
+		$hour5.toggleClass("present", true).toggleClass("past", false);
+	}
+	
+	
 	//
 	// TODO: Add code to get any user input that was saved in localStorage and set
 	// the values of the corresponding textarea elements. HINT: How can the id
@@ -110,6 +126,3 @@ $(function () {
 	let currentDay = dayjs();
 	$("#currentDay").text(currentDay.format("dddd, D MMMM"));
 });
-// object & key timeId = timeId = timeId.value (timeId === id hour-9 etc)
-// key eventDetails = eventDetails.value (the value of this is the corresponding .description class)
-// access it via dom traversal?? $("#hour-9").children("textarea")???
