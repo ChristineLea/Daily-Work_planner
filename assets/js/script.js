@@ -13,24 +13,74 @@ let $hour4 = $("#hour-4");
 let $hour5 = $("#hour-5");
 let $saveBtnEl = $(".saveBtn");
 
-let $text9 = $hour9.children().eq(1).text();
-let $text10 = $hour10.children().eq(1).text();
-let $text11 = $hour11.children().eq(1).text();
-let $text12 = $hour12.children().eq(1).text();
-let $text1 = $hour1.children().eq(1).text();
-let $text2 = $hour2.children().eq(1).text();
-let $text3 = $hour3.children().eq(1).text();
-let $text4 = $hour4.children().eq(1).text();
-let $text5 = $hour5.children().eq(1).text();
+// let $text9 = $hour9.children().eq(1).text();
+// let $text10 = $hour10.children().eq(1).text();
+// let $text11 = $hour11.children().eq(1).text();
+// let $text12 = $hour12.children().eq(1).text();
+// let $text1 = $hour1.children().eq(1).text();
+// let $text2 = $hour2.children().eq(1).text();
+// let $text3 = $hour3.children().eq(1).text();
+// let $text4 = $hour4.children().eq(1).text();
+// let $text5 = $hour5.children().eq(1).text();
 
-$(function () {
+$(document).ready(function () {
+	if (localStorage.getItem("nine")) {
+		$hour9
+			.children()
+			.eq(1)
+			.text(JSON.parse(localStorage.getItem("nine")));
+	} else if (localStorage.getItem("ten")) {
+		$hour10
+			.children()
+			.eq(1)
+			.text(JSON.parse(localStorage.getItem("ten")));
+	} else if (localStorage.getItem("eleven")) {
+		$hour11
+			.children()
+			.eq(1)
+			.text(JSON.parse(localStorage.getItem("eleven")));
+	} else if (localStorage.getItem("twelve")) {
+		$hour12
+			.children()
+			.eq(1)
+			.text(JSON.parse(localStorage.getItem("twelve")));
+	} else if (localStorage.getItem("one")) {
+		$hour1
+			.children()
+			.eq(1)
+			.text(JSON.parse(localStorage.getItem("one")));
+	} else if (localStorage.getItem("two")) {
+		$hour2
+			.children()
+			.eq(1)
+			.text(JSON.parse(localStorage.getItem("two")));
+	} else if (localStorage.getItem("three")) {
+		$hour3
+			.children()
+			.eq(1)
+			.text(JSON.parse(localStorage.getItem("three")));
+	} else if (localStorage.getItem("four")) {
+		$hour4
+			.children()
+			.eq(1)
+			.text(JSON.parse(localStorage.getItem("four")));
+	} else {
+		$hour5
+			.childrren()
+			.eq(1)
+			.text(JSON.parse(localStorage.getItem("five")));
+	}
+
+	// ar $tournament = $('#tournament'); // keep reference on element
+	// // if already data set in localstorage for this element,
+	// // set HTML element
+	// if(localStorage.getItem("#tournament")) {
+	//     $tournament.html(localStorage.getItem("#tournament"));
 	$saveBtnEl.on("click", function (event) {
 		let $btn = $(event.currentTarget).parent();
 		// let $descr = $(event.currentTarget).parent().children("textarea").text();
 		let $id = $btn.attr("id");
 		let $descr = $btn.children("textarea").val();
-		console.log($descr);
-		console.log($id);
 
 		if ($id === "hour-9") {
 			localStorage.setItem("nine", JSON.stringify($descr));
@@ -110,8 +160,7 @@ $(function () {
 		$hour4.toggleClass("present", true).toggleClass("past", false);
 		$hour5.toggleClass("present", true).toggleClass("past", false);
 	}
-	
-	
+
 	//
 	// TODO: Add code to get any user input that was saved in localStorage and set
 	// the values of the corresponding textarea elements. HINT: How can the id
