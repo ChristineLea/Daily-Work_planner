@@ -60,11 +60,6 @@ $(function () {
 	// current hour in 24-hour time?
 
 	let currentHour = dayjs().format("h");
-	let compareHour;
-	console.log(compareHour);
-	if (currentHour > 9 && currentHour < 6) {
-		compareHour = "hour-" + currentHour;
-	} 
 	if (currentHour === 9) {
 		// toggleClass(name, false = remove, true = add)
 		// all start on future
