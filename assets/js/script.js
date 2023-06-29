@@ -2,15 +2,27 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 // parentEl of the save button
-
-// let $hour11El = $("#hour-11");
-// let $hour12El = $("#hour-12");
-// let $hour1El = $("#hour-1");
-// let $hour2El = $("#hour-2");
-// let $hour3El = $("#hour-3");
-// let $hour4El = $("#hour-4");
-// let $hour5El = $("#hour-5");
+let $hour9 = $("#hour-9");
+let $hour10 = $("#hour-10");
+let $hour11 = $("#hour-11");
+let $hour12 = $("#hour-12");
+let $hour1 = $("#hour-1");
+let $hour2 = $("#hour-2");
+let $hour3 = $("#hour-3");
+let $hour4 = $("#hour-4");
+let $hour5 = $("#hour-5");
 let $saveBtnEl = $(".saveBtn");
+
+
+let $text9 = $hour9.children().eq(1).text();
+let $text10 = $hour10.children().eq(1).text();
+let $text11 = $hour11.children().eq(1).text();
+let $text12 = $hour12.children().eq(1).text();
+let $text1 = $hour1.children().eq(1).text();
+let $text2 = $hour2.children().eq(1).text();
+let $text3 = $hour3.children().eq(1).text();
+let $text4 = $hour4.children().eq(1).text();
+let $text5 = $hour5.children().eq(1).text();
 
 $(function () {
 	// TODO: Add a listener for click events on the save button. This code should
@@ -20,7 +32,7 @@ $(function () {
 	// time-block containing the button that was clicked? How might the id be
 	// useful when saving the description in local storage?
 
-	// .time-block --- if
+	
 
 	$saveBtnEl.on("click", function (event) {
 		let $btn = $(event.currentTarget).parent();
@@ -51,8 +63,39 @@ $(function () {
 		}
 	});
 
-	
+	// function linkTime(hour) {
+	// 	$timeBlock = $("body").children().eq(1).children(1).eq(i).attr("id");
+	// 	let timeBlockId = hour.attr("id");
+	// 	let timeBlockText = hour.children().eq(1).text();
+	// 	let timeBlockBtn = hour.children().eq(2);
+	// }
+	// let $timeBlock = $("body").children().eq(1).children(1).eq();
 
+	// ("body").children().eq(1).children(1).eq(x).attr("id") // will return the value of id
+
+	// $("textarea").eq(x).text("by"); // add text - to get text .val()
+
+	// 	let $domTrav = $("body").children().eq(1).children(1);
+	// 	let $timeBlockInput = $("textarea").text();
+	// 	$timeBlockInput;
+	// let timeBlockEl = $("time-block");
+	// 	$.each($domTrav, function (i, val) {
+
+	// 			val = $domTrav.eq(i).attr("id");
+	// 		if (val === $btnClicked) {
+
+	// 			}
+	// 			// if ($timeBlockBtn === val) {
+	// 			// 	val = "#" + val;
+	// 			// 	console.log(val);
+	// 			// 	let $hourEl = $(val);
+	// 			// 	console.log($hourEl);
+	// 			// } else {
+	// 			// 	console.log("no match");
+	// 			// }
+	// 	});
+
+	// 	});
 	// TODO: Add code to apply the past, present, or future class to each time
 	// block by comparing the id to the current hour. HINTS: How can the id
 	// attribute of each time-block be used to conditionally add or remove the
