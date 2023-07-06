@@ -1,3 +1,22 @@
+let currentDay = dayjs();
+$("#currentDay").text(currentDay.format("dddd, D MMMM"));
+
+function updateHour() {
+	let currentHour = dayjs().format("h");
+	console.log(currentHour);
+
+	let $hour9 = $("#hour-9");
+	console.log($hour9);
+	let checkAtt = $hour9.attr("class");
+	console.log(checkAtt);
+	console.log(typeof checkAtt);
+	if (checkAtt.includes("future")) {
+		$hour9.toggleClass("future", false).toggleClass("past", true);
+		console.log($hour9.attr("class"));
+	}
+}
+
+updateHour();
 function setLocalStorage(id, text) {
 	if (id === "9") {
 		localStorage.setItem("nine", JSON.stringify(text));
@@ -18,9 +37,9 @@ function setLocalStorage(id, text) {
 	} else {
 		localStorage.setItem("five", JSON.stringify(text));
 	}
-};
+}
 
-$(".btn").on("click", function (event) {
+$(".saveBtn").on("click", function (event) {
 	let $btnEvent = $(event.target);
 	let $btnId = $btnEvent.prev().attr("id");
 	let $descr = $btnEvent.prev().val();
