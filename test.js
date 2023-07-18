@@ -61,6 +61,7 @@ $(function () {
 	if (currentHour === 9) {
 		// toggleClass(name, false = remove, true = add)
 		// all start on future
+		// addClass removeAttr
 		$hour9
 			.toggleClass("present", true)
 			.toggleClass("past", "future", false);
